@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Y2Mate.is - 8-Bit Adventure Music!-OGT4E74R0xA-160k-1660263767667.mp3-d2b2b711cc7c8af79bfa7f916a02e949.mp3str"
+
+[deps]
+
+source_file="res://Y2Mate.is - 8-Bit Adventure Music!-OGT4E74R0xA-160k-1660263767667.mp3"
+dest_files=[ "res://.import/Y2Mate.is - 8-Bit Adventure Music!-OGT4E74R0xA-160k-1660263767667.mp3-d2b2b711cc7c8af79bfa7f916a02e949.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

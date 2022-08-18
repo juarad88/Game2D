@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fantasy Music - Lumina.mp3-c058360520abe91095b035e1eb417f91.mp3str"
+
+[deps]
+
+source_file="res://Fantasy Music - Lumina.mp3"
+dest_files=[ "res://.import/Fantasy Music - Lumina.mp3-c058360520abe91095b035e1eb417f91.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
