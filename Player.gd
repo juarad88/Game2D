@@ -13,9 +13,10 @@ export (float) var acceleration = 25
 enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK}
 
 onready var player_state = state.IDLE
+onready var state_machine = $AnimationTree.get("parameters/playback")
 
 func _ready():
-	$AnimationPlayer.play("idle")
+	state_machine.travel("idle")
 	pass
 
 
@@ -26,17 +27,19 @@ func update_animation(anim):
 		$Sprite.flip_h = false
 	match(anim):
 		state.FALL:
-			$AnimationPlayer.play("fall")
+			state_machine.travel("fall")
 		state.ATTACK:
-			$AnimationPlayer.play("attack")
+			state_machine.travel("attack")
 		state.IDLE:
-			$AnimationPlayer.play("idle")
+			state_machine.travel("idle")
 		state.JUMP:
-			$AnimationPlayer.play("jump")
+			state_machine.travel("jump")
 		state.PUSHING:
-			$AnimationPlayer.play("pushing")
+			state_machine.travel("pushing")
 		state.RUNNING:
-			$AnimationPlayer.play("running")
+			state_machine.travel("running")
+		state.ROLLING:
+			state_machine.travel("roll")
 			
 			
 
@@ -55,19 +58,29 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	#print(is_on_floor())
 	if velocity == Vector2.ZERO:
 		player_state = state.IDLE
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		player_state = state.STARTJUMP
+		
 	elif velocity.x != 0:
 		player_state = state.RUNNING
 	
+	if Input.is_action_just_pressed("Roll"):
+		player_state = state.ROLLING
+		
 	if not is_on_floor():
 		if velocity.y < 0:
 			player_state = state.JUMP
+			
+		elif player_state == state.JUMP and velocity.y >0:
+			if Input.is_action_just_pressed("Roll"):
+				player_state = state.Rolling
+				
 		if velocity.y >0:
 			player_state = state.FALL
+			if Input.is_action_just_pressed("Roll"):
+				player_state = state.ROLLING
 			
 	handle_state(player_state)
 	update_animation(player_state)
@@ -75,4 +88,3 @@ func _physics_process(delta):
 	#set gravity
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
-
