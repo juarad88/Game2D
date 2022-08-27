@@ -145,7 +145,7 @@ animation = "fall"
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=30]
 animation = "jump"
 
 [sub_resource type="AnimationNodeAnimation" id=14]
@@ -153,8 +153,6 @@ animation = "roll"
 
 [sub_resource type="AnimationNodeAnimation" id=15]
 animation = "running"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=18]
 
@@ -164,34 +162,35 @@ animation = "running"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
-switch_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
 
 [sub_resource type="AnimationNodeStateMachine" id=26]
 states/fall/node = SubResource( 11 )
-states/fall/position = Vector2( 522, 222 )
+states/fall/position = Vector2( 667, 259 )
 states/idle/node = SubResource( 12 )
-states/idle/position = Vector2( 345, 222 )
-states/jump/node = SubResource( 13 )
-states/jump/position = Vector2( 345, 90 )
+states/idle/position = Vector2( 361, 240 )
+states/jump/node = SubResource( 30 )
+states/jump/position = Vector2( 502, 62 )
 states/roll/node = SubResource( 14 )
-states/roll/position = Vector2( 345, 353 )
+states/roll/position = Vector2( 219, 82 )
 states/running/node = SubResource( 15 )
 states/running/position = Vector2( 154, 222 )
-transitions = [ "jump", "fall", SubResource( 17 ), "fall", "idle", SubResource( 18 ), "idle", "running", SubResource( 19 ), "running", "idle", SubResource( 20 ), "idle", "fall", SubResource( 21 ), "running", "roll", SubResource( 22 ), "roll", "idle", SubResource( 23 ), "roll", "running", SubResource( 24 ), "idle", "roll", SubResource( 28 ), "fall", "roll", SubResource( 29 ), "jump", "roll", SubResource( 30 ) ]
+transitions = [ "fall", "idle", SubResource( 18 ), "idle", "running", SubResource( 19 ), "running", "idle", SubResource( 20 ), "idle", "fall", SubResource( 21 ), "idle", "roll", SubResource( 28 ), "jump", "idle", SubResource( 32 ), "idle", "jump", SubResource( 33 ), "roll", "idle", SubResource( 34 ), "jump", "roll", SubResource( 35 ), "fall", "roll", SubResource( 36 ), "running", "roll", SubResource( 37 ) ]
 start_node = "idle"
-graph_offset = Vector2( -97, 22 )
+graph_offset = Vector2( -262, -24 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
@@ -225,3 +224,7 @@ tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 27 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 15.577 )

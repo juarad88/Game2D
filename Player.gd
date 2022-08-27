@@ -5,12 +5,13 @@ export (int) var jump_speed = -180
 export (int) var gravity = 400
 export (int) var slide_speed = 400
 
+var can_jump = true
 var velocity = Vector2.ZERO
 
 export (float) var friction = 10 
 export (float) var acceleration = 25
 
-enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK}
+enum state {IDLE, RUNNING, PUSHING, ROLLING, JUMP, STARTJUMP, FALL, ATTACK, WALLJUMP}
 
 onready var player_state = state.IDLE
 onready var state_machine = $AnimationTree.get("parameters/playback")
@@ -39,6 +40,7 @@ func update_animation(anim):
 		state.RUNNING:
 			state_machine.travel("running")
 		state.ROLLING:
+			print("rolling")
 			state_machine.travel("roll")
 			
 			
@@ -47,6 +49,12 @@ func handle_state(player_state):
 	match(player_state):
 		state.STARTJUMP:
 			velocity.y = jump_speed
+		state.WALLJUMP:
+			velocity.y = jump_speed*.75
+			if $Sprite.flip_h == false:
+				velocity.x = -250
+			else:
+				velocity.x = 250
 	pass
 	
 func get_input():
@@ -62,6 +70,8 @@ func _physics_process(delta):
 		player_state = state.IDLE
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		player_state = state.STARTJUMP
+		can_jump = true
+		
 		
 	elif velocity.x != 0:
 		player_state = state.RUNNING
@@ -72,16 +82,22 @@ func _physics_process(delta):
 	if not is_on_floor():
 		if velocity.y < 0:
 			player_state = state.JUMP
-			
-		elif player_state == state.JUMP and velocity.y >0:
-			if Input.is_action_just_pressed("Roll"):
-				player_state = state.Rolling
-				
 		if velocity.y >0:
 			player_state = state.FALL
-			if Input.is_action_just_pressed("Roll"):
-				player_state = state.ROLLING
-			
+		if Input.is_action_just_pressed("Roll"):
+			player_state = state.ROLLING	
+		if Input.is_action_just_pressed("jump") and is_on_wall() and $RayCast2D.is_colliding() == false:
+			player_state = state.WALLJUMP
+		if Input.is_action_just_pressed("jump") and can_jump == true:
+			player_state = state.STARTJUMP
+			can_jump = false
+		
+#		elif player_state == state.JUMP and velocity.y >0:
+#
+#
+#		
+#			if Input.is_action_just_pressed("Roll"):
+#				player_state = state.ROLLING
 	handle_state(player_state)
 	update_animation(player_state)
 	
