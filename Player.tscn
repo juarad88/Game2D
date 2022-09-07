@@ -3,9 +3,6 @@
 [ext_resource path="res://sprites/herochar_spritesheet(new).png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 7 )
-
 [sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
@@ -194,6 +191,10 @@ graph_offset = Vector2( -262, -24 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
+[sub_resource type="CapsuleShape2D" id=38]
+radius = 4.0
+height = 4.0
+
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 2 )
 
@@ -202,11 +203,7 @@ position = Vector2( 0, 1 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 15
-frame = 40
-
-[node name="BodyCollider" type="CollisionShape2D" parent="."]
-position = Vector2( -1, 2 )
-shape = SubResource( 1 )
+frame = 43
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 3.0
@@ -228,3 +225,14 @@ parameters/playback = SubResource( 27 )
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 0, 15.577 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -5, 6, -4, 8, 2, 8, 3, 7, 4, -3, 2, -5, -2, -5, -4, -3 )
+
+[node name="Deathzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2( 0, 1 )
+shape = SubResource( 38 )
+
+[connection signal="area_entered" from="Deathzone" to="." method="_on_Deathzone_area_entered"]

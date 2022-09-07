@@ -7,6 +7,7 @@ export (int) var slide_speed = 400
 
 var can_jump = true
 var velocity = Vector2.ZERO
+var player_health = 100
 
 export (float) var friction = 10 
 export (float) var acceleration = 25
@@ -104,3 +105,9 @@ func _physics_process(delta):
 	#set gravity
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+
+#func _on_Deathzone_area_entered(area):
+#	if area.is_in_group("Deadly"):
+#		if GameStats.check_reset() == false:
+#			global_position = GameStats.get_spawn().global_position
