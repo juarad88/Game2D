@@ -8,9 +8,16 @@ extends Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$AnimationPlayer.play("checkpoint")
+	
+func _process(delta):
+	if GameStats.get_spawn() != self:
+		$AnimationPlayer.play("checkpoint")
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _on_SavePoint_body_entered(body):
+	if body.is_in_group("Player"):
+		GameStats.set_spawn(self)
+		$AnimationPlayer.play("checkpoint")
