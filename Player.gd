@@ -41,7 +41,6 @@ func update_animation(anim):
 		state.RUNNING:
 			state_machine.travel("running")
 		state.ROLLING:
-			print("rolling")
 			state_machine.travel("roll")
 			
 			
@@ -92,7 +91,12 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("jump") and can_jump == true:
 			player_state = state.STARTJUMP
 			can_jump = false
+	if player_health <= 0:
+		GameStats.reset()
 		
+	$CanvasLayer/Control/ProgressBar.value = player_health	
+
+	
 #		elif player_state == state.JUMP and velocity.y >0:
 #
 #

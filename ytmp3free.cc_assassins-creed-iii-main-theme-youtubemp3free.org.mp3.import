@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ytmp3free.cc_assassins-creed-iii-main-theme-youtubemp3free.org.mp3-719578a6c2f036924d2b6c1877a62080.mp3str"
+
+[deps]
+
+source_file="res://ytmp3free.cc_assassins-creed-iii-main-theme-youtubemp3free.org.mp3"
+dest_files=[ "res://.import/ytmp3free.cc_assassins-creed-iii-main-theme-youtubemp3free.org.mp3-719578a6c2f036924d2b6c1877a62080.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
