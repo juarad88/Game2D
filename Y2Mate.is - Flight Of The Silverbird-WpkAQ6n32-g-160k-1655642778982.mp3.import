@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Y2Mate.is - Flight Of The Silverbird-WpkAQ6n32-g-160k-1655642778982.mp3-7867b6a7623438b260e88e997888d40d.mp3str"
+
+[deps]
+
+source_file="res://Y2Mate.is - Flight Of The Silverbird-WpkAQ6n32-g-160k-1655642778982.mp3"
+dest_files=[ "res://.import/Y2Mate.is - Flight Of The Silverbird-WpkAQ6n32-g-160k-1655642778982.mp3-7867b6a7623438b260e88e997888d40d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

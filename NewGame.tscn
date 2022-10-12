@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Mana_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://NewGame.gd" type="Script" id=2]
 
-[node name="NewGame" type="Button"]
+[node name="MenuButton" type="Button"]
 margin_right = 1040.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 360, 60 )
 flat = true
+script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
@@ -13,4 +16,5 @@ anchor_bottom = 1.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 5
 custom_fonts/font = ExtResource( 1 )
-text = "New Game"
+text = "Label
+"
