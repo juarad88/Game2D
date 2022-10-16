@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Y2Mate.is - Phoenix-kRrRrHk-hU4-160k-1656066395500.mp3-3e41a8921e719a3e7f21b913157b4fc6.mp3str"
+
+[deps]
+
+source_file="res://Y2Mate.is - Phoenix-kRrRrHk-hU4-160k-1656066395500.mp3"
+dest_files=[ "res://.import/Y2Mate.is - Phoenix-kRrRrHk-hU4-160k-1656066395500.mp3-3e41a8921e719a3e7f21b913157b4fc6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
