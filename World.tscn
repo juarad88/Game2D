@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://2.png" type="Texture" id=10]
 [ext_resource path="res://6.png" type="Texture" id=11]
 [ext_resource path="res://green water.tscn" type="PackedScene" id=12]
-[ext_resource path="res://joystixmonospace.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Mana_48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://World.gd" type="Script" id=14]
 
 [sub_resource type="Curve2D" id=22]
@@ -557,10 +557,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 3/shapes = [  ]
 3/z_index = 0
 
-[sub_resource type="DynamicFont" id=46]
-size = 30
-font_data = ExtResource( 13 )
-
 [node name="World" type="Node2D"]
 script = ExtResource( 14 )
 
@@ -657,7 +653,7 @@ position = Vector2( 0, -1 )
 rotation = 3.14159
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -374, -2321 )
+position = Vector2( -27, -22 )
 speed = 160
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1719,19 +1715,15 @@ position = Vector2( -2808, -1964 )
 [node name="CanvasLayer" type="CanvasLayer" parent="Wastelands"]
 
 [node name="Control" type="Control" parent="Wastelands/CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -1.0
-margin_top = -2.0
-margin_right = -1.0
-margin_bottom = -2.0
+margin_right = 1283.0
+margin_bottom = 725.0
 
 [node name="Label" type="Label" parent="Wastelands/CanvasLayer/Control"]
-margin_left = 1061.0
-margin_top = 26.0
-margin_right = 1261.0
-margin_bottom = 63.0
-custom_fonts/font = SubResource( 46 )
+margin_left = 1102.0
+margin_top = 23.0
+margin_right = 1270.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 13 )
 text = "00:00:00"
 
 [editable path="SpinningBlade"]
