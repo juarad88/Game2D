@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/[YT2mp3.info] - Goat Scream - Sound Effect (HD) (320kbps).mp3-9961d7aaca4c8781bfc6d73095837655.mp3str"
+
+[deps]
+
+source_file="res://[YT2mp3.info] - Goat Scream - Sound Effect (HD) (320kbps).mp3"
+dest_files=[ "res://.import/[YT2mp3.info] - Goat Scream - Sound Effect (HD) (320kbps).mp3-9961d7aaca4c8781bfc6d73095837655.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
