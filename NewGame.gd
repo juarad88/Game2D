@@ -1,6 +1,6 @@
 extends Button
 
-export(String) var scene_to_load
+export(String) var scene_to_load                                                       
 
 
 # Called when the node enters the scene tree for the first time.

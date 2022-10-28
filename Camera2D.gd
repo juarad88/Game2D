@@ -9,6 +9,7 @@ func _ready():
 
 
 func _process(delta):
+
 #	if Input.is_action_just_pressed("zoom"):
 #		if zoomed:
 #			target = null
@@ -16,7 +17,7 @@ func _process(delta):
 #		else:
 #			target = owner.get_node("Player")
 #			zoomed = true 
-			
+#
 	if zoomed:
 		position = target.global_position
 		zoom = Vector2(0.3,0.3)
