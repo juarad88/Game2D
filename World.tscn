@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
@@ -12,10 +12,11 @@
 [ext_resource path="res://2.png" type="Texture" id=10]
 [ext_resource path="res://6.png" type="Texture" id=11]
 [ext_resource path="res://green water.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Mana_48.tres" type="DynamicFont" id=13]
 [ext_resource path="res://World.gd" type="Script" id=14]
 [ext_resource path="res://[YT2mp3.info] - Goat Scream - Sound Effect (HD) (320kbps).mp3" type="AudioStream" id=15]
 [ext_resource path="res://jump_sound.gd" type="Script" id=16]
+[ext_resource path="res://Obelisk.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Obelisk.gd" type="Script" id=18]
 
 [sub_resource type="Curve2D" id=22]
 _data = {
@@ -655,8 +656,13 @@ position = Vector2( 0, -1 )
 rotation = 3.14159
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -27, -22 )
+position = Vector2( -28, -17 )
 speed = 180
+jump_speed = -180
+gravity = 400
+slide_speed = 400
+friction = 10.0
+acceleration = 25.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -1735,13 +1741,13 @@ position = Vector2( -2808, -1964 )
 margin_right = 1283.0
 margin_bottom = 725.0
 
-[node name="Label" type="Label" parent="Wastelands/CanvasLayer/Control"]
-margin_left = 1102.0
-margin_top = 23.0
-margin_right = 1270.0
-margin_bottom = 55.0
-custom_fonts/font = ExtResource( 13 )
-text = "00:00:00"
+[node name="Area2D20" parent="." instance=ExtResource( 17 )]
+position = Vector2( -2349, -1166 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 18 )
+scene_to_load = "res://EndGame.tscn"
+
+[connection signal="area_entered" from="Area2D20" to="Area2D20" method="_on_Area2D20_area_entered"]
 
 [editable path="SpinningBlade"]
 [editable path="SpinningBlade2"]

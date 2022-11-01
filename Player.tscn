@@ -203,6 +203,12 @@ bg_color = Color( 1, 0, 0, 1 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 script = ExtResource( 2 )
+speed = null
+jump_speed = null
+gravity = null
+slide_speed = null
+friction = null
+acceleration = null
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 1 )

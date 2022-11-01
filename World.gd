@@ -16,3 +16,8 @@ func _process(delta):
 		$CanvasLayer/Control/Label.text = GameStats.get_time()
 
 
+
+
+
+
+
